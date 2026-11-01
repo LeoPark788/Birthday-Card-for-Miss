@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff4f2">
+<title>Happy Birthday, Miss!</title>
+<style>
+  :root { --rose:#d97886; --deep:#8e5365; --cream:#fffaf5; --ink:#51434a; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; overflow-x:hidden;
+    font-family: Georgia, "Times New Roman", serif; color:var(--ink);
+    background: radial-gradient(circle at 15% 12%, #fff 0 8%, transparent 30%),
+                linear-gradient(135deg,#fff5ef,#fbe8ec 55%,#f5e9f7);
+    display:grid; place-items:center; padding:28px 16px;
+  }
+  .sparkle { position:fixed; color:#d99aa5; opacity:.55; pointer-events:none; animation: drift 8s ease-in-out infinite; }
+  .s1{top:9%;left:9%;font-size:25px}.s2{top:18%;right:12%;font-size:18px;animation-delay:2s}
+  .s3{bottom:13%;left:15%;font-size:20px;animation-delay:4s}.s4{bottom:10%;right:10%;font-size:27px;animation-delay:1s}
+  @keyframes drift { 50%{transform:translateY(-14px) rotate(12deg)} }
+  .wrap { width:min(100%,650px); text-align:center; }
+  .eyebrow { font:600 11px/1.5 Arial,sans-serif; letter-spacing:3px; text-transform:uppercase; color:#a66c7a; }
+  h1 { font-size:clamp(2.5rem,8vw,4.5rem); line-height:1.02; font-weight:normal; color:var(--deep); margin:12px 0 8px; }
+  .sub { font:15px/1.6 Arial,sans-serif; color:#8d747c; margin:0 0 28px; }
+  .envelope-area { perspective:1000px; margin:0 auto; width:min(100%,440px); }
+  .envelope {
+    position:relative; height:265px; border:0; width:100%; cursor:pointer;
+    background:linear-gradient(145deg,#e9a7ae,#d98796); border-radius:12px;
+    box-shadow:0 22px 50px #9d63702b; transition:transform .3s ease;
+  }
+  .envelope:hover { transform:translateY(-4px); }
+  .env-back { position:absolute; inset:0; background:#d98796; border-radius:12px; }
+  .letter {
+    position:absolute; z-index:2; left:7%; width:86%; height:88%; bottom:5%;
+    background:var(--cream); border-radius:7px; padding:25px 18px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transition:transform .9s cubic-bezier(.2,.8,.2,1), height .9s;
+    box-shadow:0 5px 18px #77404b20;
+  }
+  .letter .mini { font-size:30px; margin-bottom:8px; }
+  .letter strong { font-size:23px; color:var(--deep); font-weight:normal; }
+  .letter span { font:12px Arial,sans-serif; color:#9c7d84; margin-top:9px; }
+  .flap {
+    position:absolute; z-index:4; top:0; left:0; width:100%; height:58%;
+    background:linear-gradient(145deg,#f0b5bb,#df929f);
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top; transition:transform .65s ease; border-radius:12px 12px 0 0;
+  }
+  .pocket {
+    position:absolute; z-index:3; inset:0;
+    background:linear-gradient(35deg,#d47f8e,#e8a2ac);
+    clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%);
+    border-radius:12px;
+  }
+  .seal {
+    position:absolute; z-index:5; top:45%; left:50%; transform:translate(-50%,-50%);
+    width:48px;height:48px;border-radius:50%;background:#fff1e9;color:#bd7180;
+    display:grid;place-items:center;font-size:22px;box-shadow:0 3px 12px #793c4c30;
+    transition:opacity .25s;
+  }
+  .envelope.open .flap { transform:rotateX(180deg); z-index:1; }
+  .envelope.open .letter { transform:translateY(-115px); height:112%; transition-delay:.25s; }
+  .envelope.open .seal { opacity:0; }
+  .hint { font:12px Arial,sans-serif; color:#9b7c84; margin:18px 0 0; }
+  .message {
+    display:none; text-align:left; margin:32px auto 0; padding:clamp(24px,6vw,42px);
+    background:#fffdf9eF; border:1px solid #f0d9dc; border-radius:18px;
+    box-shadow:0 18px 45px #9d63701c; animation:appear .8s ease both;
+  }
+  .message.show { display:block; }
+  @keyframes appear { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+  .message h2 { text-align:center; color:var(--deep); font-size:clamp(1.8rem,5vw,2.4rem); font-weight:normal; margin:0 0 22px; }
+  .message p { font-size:16px; line-height:1.85; margin:0 0 15px; }
+  .signoff { text-align:center; color:var(--deep); font-size:19px; margin-top:24px!important; }
+  .footer { font:11px Arial,sans-serif; color:#a68a91; margin-top:28px; letter-spacing:1px; }
+  .again { border:1px solid #d99aa5; background:transparent; color:var(--deep); border-radius:30px; padding:11px 20px; font:13px Arial,sans-serif; cursor:pointer; margin-top:16px; }
+  .again:hover { background:#fff0f1; }
+  @media(max-width:480px){.envelope{height:230px}.message p{font-size:15px}.envelope.open .letter{transform:translateY(-100px)}}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sparkle s1">✦</div><div class="sparkle s2">♡</div><div class="sparkle s3">✧</div><div class="sparkle s4">♡</div>
+<main class="wrap">
+  <div class="eyebrow">A little birthday surprise</div>
+  <h1>Happy Birthday,<br>Miss!</h1>
+  <p class="sub">A small note of appreciation, just for you.</p>
+
+  <div class="envelope-area">
+    <button class="envelope" id="envelope" aria-label="Open your birthday letter">
+      <div class="env-back"></div>
+      <div class="letter"><div class="mini">💐</div><strong>A note for you</strong><span>With warm wishes</span></div>
+      <div class="flap"></div><div class="pocket"></div><div class="seal">♡</div>
+    </button>
+  </div>
+  <p class="hint" id="hint">Tap the envelope to open your message ♡</p>
+
+  <section class="message" id="message">
+    <h2>To a wonderful teacher ♡</h2>
+    <p>Happy Birthday, Miss! ❤️</p>
+    <p>I hope your special day is filled with happiness, laughter, and all the wonderful things you deserve.</p>
+    <p>I just want to say that I'm genuinely grateful to have you as my Academic English teacher. One thing I really appreciate about you is how you manage to make learning enjoyable with your humour, encouragement, and supportive nature. You make the classroom feel more welcoming, and your positive energy makes a difference.</p>
+    <p>I admire how you encourage us to believe in ourselves, keep improving, and never be afraid to learn from our mistakes. It's not just about what you teach us, but also the confidence and motivation you give your students along the way.</p>
+    <p>Thank you for being such a wonderful teacher and for making our learning experience a little brighter. I hope you never lose that amazing sense of humour and the kindness you share with everyone around you.</p>
+    <p>Wishing you good health, endless happiness, and many more beautiful years ahead.</p>
+    <p class="signoff">Happy Birthday once again, Miss! ❤️</p>
+    <div style="text-align:center"><button class="again" id="again">Close the letter</button></div>
+  </section>
+  <div class="footer">MADE WITH APPRECIATION · ♡</div>
+</main>
+<script>
+const envelope = document.getElementById('envelope');
+const message = document.getElementById('message');
+const hint = document.getElementById('hint');
+function openLetter() {
+  envelope.classList.add('open');
+  hint.textContent = 'A little something from your student ♡';
+  setTimeout(() => { message.classList.add('show'); message.scrollIntoView({behavior:'smooth',block:'start'}); }, 650);
+}
+function closeLetter() {
+  message.classList.remove('show');
+  envelope.classList.remove('open');
+  hint.textContent = 'Tap the envelope to open your message ♡';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+envelope.addEventListener('click', openLetter);
+document.getElementById('again').addEventListener('click', closeLetter);
+</script>
+</body>
+</html>
